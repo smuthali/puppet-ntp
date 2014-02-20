@@ -1,4 +1,4 @@
-Recoil
+NTP
 ======
 
-Puppet-NTP
+Puppet-NTP module
