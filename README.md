@@ -8,7 +8,7 @@ Puppet-NTP module
 1. [Overview] (#overview)
 2. [Module Description - what the module essentially does] (#module description)
 3. [Setup - getting started with NTP] (#setup)
-    * [What files or packages NTP affects] (#what-does-Ntp-affect)
+    * [What files or packages NTP affects] (#What-does-Ntp-affect)
 4. [Usage - how to leverage the puppet NTP modules] (#usage)
 5. [Limitations - OS compatibility] (#limitations)
 6. [Future enhancements - additional functionality that will be added] (#enhancements)
@@ -24,9 +24,20 @@ The NTP puppet module installs and configures NTP across Ubuntu/Debian/Red Hat/C
 
 ## Setup
 
-#### What does NTP affect
+### What does NTP affect
 
 1. NTP packages (.deb or rpm)
 2. NTP configuration file (ntp.conf)
-3. manipulating NTP service (stop and start)
+3. Manipulating NTP service (stop and start)
+
+## Usage
+In site.pp it is sufficient to simply add `include '::ntp'` to load, install and configure NTP module. Parameters can also be passed to the NTP module by specifying which NTP clock sources to user. For example:
+```puppet
+class { '::ntp':
+   ntp_server_addr => [ '0.pool.ntp.org', '1.pool.ntp.org', '2.pool.ntp.org' ],
+   }
+   ```
+   
+## Limitations
+
 
