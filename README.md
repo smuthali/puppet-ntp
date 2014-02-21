@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 NTP
 ======
 
@@ -57,3 +58,9 @@ Future enhancements will include:
 * rspec (TDD)
 * Testing on other flavors of *nix
 * Creating private classes for more customization
+=======
+ntp
+===
+
+Puppet module to install and configure NTP
+>>>>>>> 5181b4a804bdd553add67cffb908b00845e3113e
