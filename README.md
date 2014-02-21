@@ -1,5 +1,5 @@
 NTP
-======
+===
 
 Puppet-NTP module
 
