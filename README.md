@@ -40,4 +40,20 @@ class { '::ntp':
    
 ## Limitations
 
+The NTP puppet module has been built on and test against Puppet 3.4.2 and has also been tested on Puppet 2.7.
+The module has been tested on:
 
+* RedHat Enterprise Linux 6
+* Debian 6/7
+* Ubuntu 12.04
+* Centos 6
+
+The NTP module has not been tested on Gentoo, SuSe or FreeBSD.
+
+## Enhancements
+
+Future enhancements will include:
+
+* rspec (TDD)
+* Testing on other flavors of *nix
+* Creating private classes for more customization
