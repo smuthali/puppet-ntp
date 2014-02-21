@@ -8,7 +8,7 @@ Puppet-NTP module
 1. [Overview] (#overview)
 2. [Module Description - what the module essentially does] (#module description)
 3. [Setup - getting started with NTP] (#setup)
-    * [What files or packages NTP affects] (#What-does-Ntp-affect)
+    * [What files or packages NTP affects] (#What-does-NTP-affect)
 4. [Usage - how to leverage the puppet NTP modules] (#usage)
 5. [Limitations - OS compatibility] (#limitations)
 6. [Future enhancements - additional functionality that will be added] (#enhancements)
