@@ -62,7 +62,6 @@ ntp
 ===
 
 Puppet module to install and configure NTP
->>>>>>> 5181b4a804bdd553add67cffb908b00845e3113e
 =======
 NTP
 ======
@@ -123,4 +122,3 @@ Future enhancements will include:
 * rspec (TDD)
 * Testing on other flavors of *nix
 * Creating private classes for more customization
->>>>>>> a241f10a80d8a3822d43d9d5445ac61e30c12d3f
