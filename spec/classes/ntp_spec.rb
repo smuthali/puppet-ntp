@@ -1,24 +1,49 @@
 require 'spec_helper'
 
-describe package('ntp') do
-	it { should be_installed }
+describe 'puppet-ntp' do
+	describe 'for Debian, Ubuntu, RedHat and CentOS' do
+		let (:facts) { {:operatingsystem => 'Debian'} }
+		let (:facts) { {:operatingsystem => 'Ubuntu'} }
+		let (:facts) { {:operatingsystem => 'RedHat'} }
+		let (:facts) { {:operatingsystem => 'CentOS'} }
+
+		it 'should include ntp' do
+			should contain_package('ntp')
+		end
+	end
 end
 
-describe service('ntp') do
-	it { should be_enabled }
-	it { should be_running }
+describe 'puppet-ntp' do
+	describe 'for Debian and Ubuntu the NTP servers should match [0-9].ubuntu.pool.ntp.org' do
+		let (:facts) { {:operatingsystem => 'Debian'} }
+		let (:facts) { {:operatingsystem => 'Ubuntu'} }
+		it do
+		 should contain_file('/etc/ntp.conf').with({
+			'content' => /server \d.ubuntu.pool.ntp.org/,
+			})
+			end 
+	end
 
-end
+	describe 'for RedHat and CentOS the NTP servers should match [0-9].rhel.pool.ntp.org' do
+		let (:facts) { {:operatingsystem => 'RedHat'} }
+		let (:facts) { {:operatingsystem => 'CentOS'} }
+		it do
+			should contain_file('/etc/ntp.conf').with({
+			'content' => /server \d.rhel.pool.ntp.org iburst/,
+			})
+		end
+	end
 
-describe file('/etc/ntp.conf') do
-	it { should be_file }
-	[ 'Debian', 'Ubuntu' ].each do |operatingsystem|
-		its(:content) { should match /server [0-9].ubuntu.pool.ntp.org/ }
+	describe 'If custom NTP servers are specified then the system will use them' do
+		let (:facts) { {:operatingsystem => 'RedHat'} }
+		let (:facts) { {:operatingsystem => 'CentOS'} }
+		let (:facts) { {:operatingsystem => 'Debian'} }
+		let (:facts) { {:operatingsystem => 'Ubuntu'} }
+		it do
+			should contain_file('/etc/ntp.conf').with({
+			'content' => /server \d/, 
+			})
+		end
 	end
-	[ 'RedHat', 'CentOS'].each do |operatingsystem|
-		its(:content) { should match /server [0-9].rhel.pool.ntp.org/ }
-	end
-	[].each do |operatingsystem|
-		its(:content) { should match /server [0-9].pool.ntp.org/ }
-	end
+	
 end

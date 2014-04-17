@@ -15,7 +15,7 @@
                     }
         }
         default: {
-            # Noop
+            fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution.")
         }
     }
 
