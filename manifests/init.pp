@@ -5,7 +5,7 @@
 # = Class: ntp
 #
 # Author: Satish Muthali <satish.muthali@gmail.com>
- class ntp ( $ntp_server_addr = [] ) {
+ class puppet-ntp ( $ntp_server_addr = [] ) {
     notice("The value is: '${ntp_server_addr}'")
     case $operatingsystem {
         centos, ubuntu, redhat, debian: {
@@ -15,7 +15,7 @@
                     }
         }
         default: {
-            # Noop
+            fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution.")
         }
     }
 
@@ -23,7 +23,7 @@
      file {
          '/etc/ntp.conf':
              ensure  => file,
-             content => template ('ntp/ntp.conf.erb'),
+             content => template ('puppet-ntp/ntp.conf.erb'),
              owner   => 'root',
              group   => 'root',
              mode    => '0644',

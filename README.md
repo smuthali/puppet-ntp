@@ -54,6 +54,7 @@ The NTP module has not been tested on Gentoo, SuSe or FreeBSD.
 
 Future enhancements will include:
 
-* rspec (TDD)
 * Testing on other flavors of *nix
 * Creating private classes for more customization
+
+Please report bugs to satish.muthaliATgmail.com
